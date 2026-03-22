@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Indian Railways Professional Color Palette */
+    --background: 210 20% 98%;
+    --foreground: 220 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    /* Deep Navy Blue - Official, Trustworthy */
+    --primary: 220 60% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light Sky Blue - Calm, Friendly */
+    --secondary: 205 85% 95%;
+    --secondary-foreground: 220 60% 25%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Saffron Orange - Indian Identity, CTAs */
+    --accent: 28 90% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success Green */
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning Amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 30% 15%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 60% 25%;
+
+    --radius: 0.5rem;
+
+    /* Railway-specific tokens */
+    --railway-navy: 220 60% 20%;
+    --railway-blue: 210 70% 45%;
+    --railway-light: 205 85% 97%;
+    --railway-saffron: 28 90% 50%;
+    --railway-green: 142 70% 40%;
+
+    --sidebar-background: 220 60% 20%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 28 90% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 50% 30%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 40% 30%;
+    --sidebar-ring: 28 90% 50%;
+  }
+
+  .dark {
+    --background: 220 30% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 30% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 30% 14%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 205 75% 60%;
+    --primary-foreground: 220 30% 10%;
+
+    --secondary: 220 30% 20%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 220 25% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 28 90% 55%;
+    --accent-foreground: 220 30% 10%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 85% 55%;
+    --warning-foreground: 220 30% 10%;
+
+    --border: 220 25% 22%;
+    --input: 220 25% 22%;
+    --ring: 205 75% 60%;
+
+    --railway-navy: 220 50% 15%;
+    --railway-blue: 210 60% 50%;
+    --railway-light: 220 30% 18%;
+    --railway-saffron: 28 85% 55%;
+    --railway-green: 142 60% 45%;
+
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 28 85% 55%;
+    --sidebar-primary-foreground: 220 30% 10%;
+    --sidebar-accent: 220 30% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 25% 18%;
+    --sidebar-ring: 28 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Mukta', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Mukta', system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .railway-card {
+    @apply bg-card rounded-lg border border-border shadow-sm p-6;
+  }
+
+  .railway-header {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .railway-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .railway-badge-success {
+    @apply bg-success/15 text-success;
+  }
+
+  .railway-badge-warning {
+    @apply bg-warning/15 text-warning;
+  }
+
+  .railway-badge-danger {
+    @apply bg-destructive/15 text-destructive;
+  }
+
+  .railway-section {
+    @apply py-12 md:py-16;
+  }
+
+  .railway-container {
+    @apply container mx-auto px-4 md:px-6;
+  }
+
+  .status-on-time {
+    @apply text-success bg-success/10 border-success/20;
+  }
+
+  .status-delayed {
+    @apply text-destructive bg-destructive/10 border-destructive/20;
+  }
+
+  .status-warning {
+    @apply text-warning bg-warning/10 border-warning/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+@keyframes moveTrain {
+  0% {
+    transform: translateX(-80px);
+  }
+  100% {
+    transform: translateX(320px);
+  }
+}
